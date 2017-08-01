@@ -30,7 +30,11 @@ defmodule PyCryptX.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:piton, "~> 0.2.0"}
+      {:piton, "~> 0.2.0"},
+      {:junit_formatter, ">= 0.0.0", only: :test},
+      {:mix_test_watch, "~> 0.3", only: :dev, runtime: false, override: true},
+      {:doc_first_formatter, "~> 0.0.1", only: :test},
+      {:ex_unit_notifier, "~> 0.1", only: :test}
     ]
   end
 end

@@ -1,0 +1,2 @@
+%{"erlport": {:hex, :erlport, "0.9.8", "b7dc57eb87f215a671926bfbcd23e6e9c76f8653b0d072627b41431ef51c4d20", [:rebar3], []},
+  "piton": {:hex, :piton, "0.2.0", "c7ceb630ca035ab8f8b8aa743cda851b4857362891bcfc889ff4c4d46019e659", [:mix], [{:erlport, "~> 0.9.8", [hex: :erlport, optional: false]}]}}

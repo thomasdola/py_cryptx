@@ -3,10 +3,13 @@ defmodule PyCryptX.Mixfile do
 
   def project do
     [app: :py_cryptx,
-     version: "0.1.0",
+     version: "0.0.1",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description(),
+     package: package(),
+     source_url: "https://github.com/thomasdola/py_cryptx",
      deps: deps()]
   end
 
@@ -35,6 +38,22 @@ defmodule PyCryptX.Mixfile do
       {:mix_test_watch, "~> 0.3", only: :dev, runtime: false, override: true},
       {:doc_first_formatter, "~> 0.0.1", only: :test},
       {:ex_unit_notifier, "~> 0.1", only: :test}
+    ]
+  end
+
+  defp description do
+    """
+    A Simple Wrapper for Python Bcrypt Module
+    """
+  end
+
+  defp package do
+    # These are the default files included in the package
+    [
+      name: :py_cryptx,
+      maintainers: ["Thomas Paul"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/thomasdola/py_cryptx"}
     ]
   end
 end

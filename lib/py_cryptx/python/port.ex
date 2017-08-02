@@ -5,7 +5,7 @@ defmodule PyCryptX.Python.Port do
 
     @timeout 5000
 
-    @python_path "lib/py_cryptx/python/code/"
+    @python_path Path.expand __DIR__ <> "/code"
 
     def start_link() do
         PyCryptX.Python.Port.start_link([path: @python_path, python: "python"], [name: @worker_name])

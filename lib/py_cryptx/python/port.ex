@@ -5,9 +5,10 @@ defmodule PyCryptX.Python.Port do
 
     @timeout 5000
 
+    @python_path "lib/py_cryptx/python/code/"
+
     def start_link() do
-        IO.inspect "*** start port ***"
-        {:ok, _pid} = PyCryptX.Python.Port.start_link([path: Path.expand("lib/py_cryptx/python/code"), python: "python"], [name: @worker_name])
+        PyCryptX.Python.Port.start_link([path: @python_path, python: "python"], [name: @worker_name])
     end
 
     @spec hash_password(raw_password :: String.t, timeout :: integer) :: hashed_password :: String.t
@@ -19,4 +20,6 @@ defmodule PyCryptX.Python.Port do
     def check_password(raw_password, hashed_password, timeout \\ @timeout) do
         PyCryptX.Python.Port.execute(@worker_name, :bcryptx, :check_password, [raw_password, hashed_password], timeout)
     end
+
+    def get_path(), do: @python_path
 end

@@ -9,7 +9,7 @@ by adding `py_cryptx` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:py_cryptx, "~> 0.1.0"}]
+  [{:py_cryptx, github: "thomasdola/py_cryptx"}]
 end
 ```
 

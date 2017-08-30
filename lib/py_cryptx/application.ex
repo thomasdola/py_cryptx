@@ -9,7 +9,7 @@ defmodule PyCryptX.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-      worker(PyCryptX.Python.Port, []),
+      worker(PyCryptX.Port, []),
     ]
 
     # for other strategies and supported options

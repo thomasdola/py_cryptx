@@ -5,6 +5,8 @@ defmodule PyCryptX.Port do
 
     @timeout 5000
 
+    @python_path Application.get_env(:py_cryptx, :python_path)
+
     def start_link() do
         PyCryptX.Port.start_link([path: get_path(), python: "python"], [name: @worker_name])
     end
@@ -19,10 +21,5 @@ defmodule PyCryptX.Port do
         PyCryptX.Port.execute(@worker_name, :bcryptx, :check_password, [raw_password, hashed_password], timeout)
     end
 
-    def get_path() do
-        case Mix.env do
-            :prod -> Path.join(:code.lib_dir(:py_cryptx), "python")
-            _ -> Path.expand("lib/python")
-        end
-    end
+    def get_path(), do: @python_path
 end

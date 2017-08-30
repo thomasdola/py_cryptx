@@ -5,7 +5,7 @@ defmodule PyCryptX.Python.Port do
 
     @timeout 5000
 
-    @python_path Path.join(:code.lib_dir(:py_cryptx), "code")
+    @python_path Path.expand "code"
 
     def start_link() do
         PyCryptX.Python.Port.start_link([path: @python_path, python: "python"], [name: @worker_name])
